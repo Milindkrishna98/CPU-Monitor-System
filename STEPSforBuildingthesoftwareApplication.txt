@@ -1,0 +1,75 @@
+Steps for Software Development using Electronjs Framework:
+
+ 1.	npm install electron -g
+ 2.	npm install create-electron-app -g : electron.js forge : inbuild template for easier development
+ 3.	create-electron-app <app-name>
+ 4.	npm run start
+
+	for refreshing: rs
+
+***	Electron provides us with 2 IPC (Inter-Process Communication) modules called ipcMain and ipcRenderer. 
+
+	IPC Main (Inter-Process Communication) - ipcMain and ipcRenderer.
+
+	IPC Main module  -  The ipcMain module is used to communicate 
+				asynchronously from the main process to renderer processes
+
+
+	 ipcRenderer module -	The ipcRenderer module is used to communicate 
+				asynchronously from a renderer process to the main process.
+
+	we have to do this in main area: index part
+	mainWindow.webContents.send('keyname in string',calculative value)
+	and add webcontents having nodeintegration : true
+
+
+	Then in HTML part where we have to rendered,
+        we have to import electron and ipcRenderer and then use the 
+	ipcRenderer.on function having a callback area to connect the data from the main
+
+5.	npm run make
+
+6.	npm install electron-builder --only=dev
+	cause it supports NSIS : Nullsoft Scriptable Install System
+
+	and then we can add a license.txt file if you want to show and make user accept it 
+before installing. Also I’ll set oneClick option to false and allowToChangeInstallationDirectory 
+to true so user can change the install path.
+part 1 in script :
+
+{
+  "name": "cool-app",
+  "productName": "CPU Monitor",
+  "scripts": {
+...
+    "build-installer": "electron-builder"
+  },
+
+part 2 : 
+
+"build": {
+  "appId": "cool-app",
+  "win": {
+    "target": [
+      "nsis"
+    ],
+    "icon": "src/icon.ico",
+    "requestedExecutionLevel": "requireAdministrator"
+  },
+  "nsis": {
+    "installerIcon": "src/icon.ico",
+    "uninstallerIcon": "src/icon.ico",
+    "uninstallDisplayName": "CPU Monitor",
+    "license": "license.txt",
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true
+  }
+},
+
+
+
+7. 	npm run build-installer
+
+
+
+

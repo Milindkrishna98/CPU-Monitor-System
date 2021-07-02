@@ -1,0 +1,11 @@
+Hello User,
+
+My name is Milind Krishna 
+I am a software developer working at TCS.
+This is a CPU Monitor System --->
+based Desktop Application made by Milind Krishna. 
+This application using IPCmodules to connect the
+main area with renderer area.
+
+Thank you for installing this light weight dynamic application for ~
+									Win | Mac | Linux. 
